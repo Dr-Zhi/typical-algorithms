@@ -7,12 +7,18 @@
 //
 
 #include <iostream>
+#include "numberAlgorithms.h"
 
-int main(int argc, const char * argv[])
-{
+using std::cout;
+using std::endl;
 
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+int main(int argc, const char * argv[]) {
+    vector<int> array;
+//    array.push_back(1);
+//    array.push_back(5);
+//    array.push_back(2);
+    array.push_back(4);
+    int N = 3;
+    int result = composeIntegerWithArrayAndNoGreaterThan(array, N);
+    cout << "result integer = " << result << endl;
 }
-
