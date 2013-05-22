@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B25C79AD16FDAA8500A3BFED /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B25C79AC16FDAA8500A3BFED /* main.cpp */; };
 		B25C79AF16FDAA8500A3BFED /* typical_algorithms.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B25C79AE16FDAA8500A3BFED /* typical_algorithms.1 */; };
+		B2B09F41174B934C00E67A8E /* ArrayAlgorithms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2B09F3F174B934C00E67A8E /* ArrayAlgorithms.cpp */; };
+		B2B09F44174B938900E67A8E /* LinkedListAlgorithms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2B09F42174B938900E67A8E /* LinkedListAlgorithms.cpp */; };
 		B2DCE7BA1748718F0057B6EC /* NumberAlgorithms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2DCE7B81748718F0057B6EC /* NumberAlgorithms.cpp */; };
 		B2DCE7C0174A196D0057B6EC /* CStringAlgorithms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2DCE7BE174A196D0057B6EC /* CStringAlgorithms.cpp */; };
 		B2DCE7C3174AFB640057B6EC /* TreeAlgorithms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2DCE7C1174AFB640057B6EC /* TreeAlgorithms.cpp */; };
@@ -31,7 +33,10 @@
 		B25C79A916FDAA8500A3BFED /* typical-algorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "typical-algorithms"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B25C79AC16FDAA8500A3BFED /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B25C79AE16FDAA8500A3BFED /* typical_algorithms.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = typical_algorithms.1; sourceTree = "<group>"; };
-		B29BD8E616FDAAC2008B65F7 /* ReverseSingleLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReverseSingleLinkedList.h; sourceTree = "<group>"; };
+		B2B09F3F174B934C00E67A8E /* ArrayAlgorithms.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArrayAlgorithms.cpp; sourceTree = "<group>"; };
+		B2B09F40174B934C00E67A8E /* ArrayAlgorithms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayAlgorithms.h; sourceTree = "<group>"; };
+		B2B09F42174B938900E67A8E /* LinkedListAlgorithms.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LinkedListAlgorithms.cpp; sourceTree = "<group>"; };
+		B2B09F43174B938900E67A8E /* LinkedListAlgorithms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkedListAlgorithms.h; sourceTree = "<group>"; };
 		B2DCE7B81748718F0057B6EC /* NumberAlgorithms.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NumberAlgorithms.cpp; sourceTree = "<group>"; };
 		B2DCE7B91748718F0057B6EC /* NumberAlgorithms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberAlgorithms.h; sourceTree = "<group>"; };
 		B2DCE7BE174A196D0057B6EC /* CStringAlgorithms.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CStringAlgorithms.cpp; sourceTree = "<group>"; };
@@ -71,15 +76,18 @@
 		B25C79AB16FDAA8500A3BFED /* typical-algorithms */ = {
 			isa = PBXGroup;
 			children = (
-				B29BD8E616FDAAC2008B65F7 /* ReverseSingleLinkedList.h */,
 				B2DCE7BE174A196D0057B6EC /* CStringAlgorithms.cpp */,
 				B2DCE7BF174A196D0057B6EC /* CStringAlgorithms.h */,
+				B2B09F42174B938900E67A8E /* LinkedListAlgorithms.cpp */,
+				B2B09F43174B938900E67A8E /* LinkedListAlgorithms.h */,
+				B2B09F3F174B934C00E67A8E /* ArrayAlgorithms.cpp */,
+				B2B09F40174B934C00E67A8E /* ArrayAlgorithms.h */,
 				B2DCE7B81748718F0057B6EC /* NumberAlgorithms.cpp */,
 				B2DCE7B91748718F0057B6EC /* NumberAlgorithms.h */,
-				B25C79AC16FDAA8500A3BFED /* main.cpp */,
 				B2DCE7C1174AFB640057B6EC /* TreeAlgorithms.cpp */,
 				B2DCE7C2174AFB640057B6EC /* TreeAlgorithms.h */,
 				B2DCE7C4174AFBDE0057B6EC /* Types.h */,
+				B25C79AC16FDAA8500A3BFED /* main.cpp */,
 				B25C79AE16FDAA8500A3BFED /* typical_algorithms.1 */,
 			);
 			path = "typical-algorithms";
@@ -140,6 +148,8 @@
 				B2DCE7BA1748718F0057B6EC /* NumberAlgorithms.cpp in Sources */,
 				B2DCE7C0174A196D0057B6EC /* CStringAlgorithms.cpp in Sources */,
 				B2DCE7C3174AFB640057B6EC /* TreeAlgorithms.cpp in Sources */,
+				B2B09F41174B934C00E67A8E /* ArrayAlgorithms.cpp in Sources */,
+				B2B09F44174B938900E67A8E /* LinkedListAlgorithms.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
