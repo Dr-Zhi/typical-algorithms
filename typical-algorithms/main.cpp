@@ -8,11 +8,13 @@
 
 #include <iostream>
 #include "numberAlgorithms.h"
+#include "ArrayAlgorithms.h"
 
 using std::cout;
 using std::endl;
 
 int main(int argc, const char * argv[]) {
+    /* tests for composeIntegerWithArrayAndNoGreaterThan */
     vector<int> array;
 //    array.push_back(1);
 //    array.push_back(5);
@@ -21,4 +23,10 @@ int main(int argc, const char * argv[]) {
     int N = 3;
     int result = composeIntegerWithArrayAndNoGreaterThan(array, N);
     cout << "result integer = " << result << endl;
+    
+    /* test for findKthElement */
+    vector<int> v1; // v1.push_back(1);
+    vector<int> v2; v2.push_back(2); v2.push_back(3);
+    int kthValue = findKthElement(v1, v2, 2);
+    cout << "kth element = " << kthValue << endl;
 }

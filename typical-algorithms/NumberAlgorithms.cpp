@@ -9,6 +9,7 @@
 #include "numberAlgorithms.h"
 
 #include <vector>
+#include <cmath>
 
 using std::vector;
 
@@ -105,3 +106,24 @@ int fibonacciNumber(int n) {
     }
     return base2;
 }
+
+/** Compute the square root using Newton iteration algorithm
+ * f(x) = x^2 - a = 0, f'(x0) = (f(x) - f(x0)) / (x - x0)
+ * => x = x0 - f(x0) / f'(x0) = x0 - (x0^2 - a) / 2x0 = (x0 + a/x0) / 2;
+ * => iteration formula: x_{n+1} = (x_n + a / x_n) / 2;
+ * The initial value is essential to the performance.
+ *
+ * References:
+ * http://blog.punkid.org/2008/02/28/compute-the-square-root-via-newtons-iteration/
+ * http://www.nowamagic.net/algorithm/algorithm_EfficacyOfFunctionSqrt.php
+ */
+double sqrt(double x) {
+    double val = x / 2.0, last;
+    double eps = 1e-6;
+    do {
+        last = val;
+        val = (val + x / val) / 2.0;
+    } while (fabs(val - last) > eps);
+    return val;
+}
+

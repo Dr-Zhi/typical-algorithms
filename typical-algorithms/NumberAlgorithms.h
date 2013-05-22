@@ -29,5 +29,7 @@ int composeIntegerWithArrayAndNoGreaterThan(const vector<int> array,
  */
 int fibonacciNumber(int n);
 
+/** Compute the square root using Newton iteration algorithm */
+double sqrt(double x);
 
 #endif /* defined(__typical_algorithms__numberAlgorithms__) */
