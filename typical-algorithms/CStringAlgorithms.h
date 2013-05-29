@@ -13,17 +13,28 @@
 
 namespace CStringAlgorithms {
     /** strlen: return length of string s */
-    size_t strlen(char * s);
+    size_t strlen(const char * str);
     
-    /** strcpy: copy string t to s. */
-    char * strcpy(char * s, char * t);
+    /** strcpy: copy string source to destination. */
+    char * strcpy(char * destination, const char * source);
     
-    /** strcmp: return <0 if s < t, 0 if s == t, >0 if s>t. */
-    int strcmp(char * s, char * t);
+    /** Return an integer indicating the relationship between the strings:
+     * <0 if str1 < str2, 0 if str1 == str2,
+     * >0 if str1>str2. */
+    int strcmp(const char * str1, const char * str2);
     
-    /** concatenate t to s. Assume enough space in t. */ 
-    char * strcat(char * s, char * t);
-
+    /** Appends a copy of the source string to the destination string.
+     * Assume: 
+     * 1. enough space in destination;
+     * 2. destination and source shall not overlap.
+     */
+    char * strcat(char * destination, const char * source);
+    
+    /** convert string to double. */
+    double atof(const char * str);
+    
+    /** inverse all the words (except numbers, punctuation) in a string. */
+    void inverseWordsInString(char * str);
 }
 
 #endif /* defined(__typical_algorithms__CStringAlgorithms__) */

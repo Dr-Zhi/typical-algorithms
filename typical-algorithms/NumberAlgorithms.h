@@ -32,4 +32,8 @@ int fibonacciNumber(int n);
 /** Compute the square root using Newton iteration algorithm */
 double sqrt(double x);
 
+/** Given n and k, output the ways to split n items into k partitions, with each partition having >= 0 items.
+ */
+void partition(const int n, const int k);
+
 #endif /* defined(__typical_algorithms__numberAlgorithms__) */

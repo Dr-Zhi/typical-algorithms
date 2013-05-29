@@ -28,4 +28,9 @@ int findKthElement(const vector<int> & v1,
                    const vector<int> & v2,
                    const int k);
 
+/** compute intersections of intervals. Read intervals from stdin and
+ * print the results to stdout.
+ */
+void computeIntervalsIntersections();
+
 #endif /* defined(__typical_algorithms__ArrayAlgorithms__) */

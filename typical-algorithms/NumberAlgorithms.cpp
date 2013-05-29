@@ -10,6 +10,7 @@
 
 #include <vector>
 #include <cmath>
+#include <cassert>
 
 using std::vector;
 
@@ -118,7 +119,8 @@ int fibonacciNumber(int n) {
  * http://www.nowamagic.net/algorithm/algorithm_EfficacyOfFunctionSqrt.php
  */
 double sqrt(double x) {
-    double val = x / 2.0, last;
+    assert(x >= 0);
+    double val = 1, last;
     double eps = 1e-6;
     do {
         last = val;
@@ -126,4 +128,42 @@ double sqrt(double x) {
     } while (fabs(val - last) > eps);
     return val;
 }
+
+
+
+/** Given n and k, output the ways to split n items into k partitions, 
+ * with each partition having >= 0 items.
+ */
+void partition(const int n, const int k) {
+    // forward declaration
+    void partitionRecursively(const int n, const int k,
+                              vector<int> &);
+    
+    vector<int> partitions;
+    partitionRecursively(n, k,
+                         partitions);
+}
+
+void partitionRecursively(const int n, const int k,
+                          vector<int> & partitions) {
+    if (n < 0 || k < 0 || (n > 0 && k <= 0)) {
+        return;
+    }
+    
+    if (k == 0) { // output the partition
+        for (int i = 0; i < partitions.size(); ++i) {
+            printf("%d ", partitions[i]);
+        }
+        printf("\n");
+    }
+    
+    for (int i = (partitions.size() == 0) ? 0 : *partitions.rbegin();
+         i <= n; ++i) {
+        partitions.push_back(i);
+        partitionRecursively(n-i, k-1,
+                             partitions);
+        partitions.pop_back();
+    }
+}
+
 

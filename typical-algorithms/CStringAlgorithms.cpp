@@ -7,32 +7,33 @@
 //
 
 #include "CStringAlgorithms.h"
+#include <algorithm>
 
 namespace CStringAlgorithms {
-    /** strlen: return length of string s */
-    size_t strlen(char * s) {
-        char * p = s;
+    /** return length of string s */
+    size_t strlen(const char * s) {
+        const char * p = s;
         while (*p) {
             ++p;
         }
         return p - s;
     }
     
-    /** strcpy: copy string t to s. */
-    char * strcpy(char * s, char * t) {
+    /** copy string t to s. */
+    char * strcpy(char * s, const char * t) {
         char * p = s;
         while((*p++ = *t++));
         return s;
     }
     
-    /** strcmp: return <0 if s < t, 0 if s == t, >0 if s>t. */
-    int strcmp(char * s, char * t) {
+    /** return <0 if s < t, 0 if s == t, >0 if s>t. */
+    int strcmp(const char * s, const char * t) {
         while (*s && *s++ == *t++);
         return *s - *t;
     }
     
-    /** concatenate t to s. Assume enough space in t. */
-    char * strcat(char * s, char * t) {
+    /** append a copy of t to s. Assume enough space in t. */
+    char * strcat(char * s, const char * t) {
         char * p = s;
         while (*p) { // find the end of s
             ++p;
@@ -58,7 +59,7 @@ namespace CStringAlgorithms {
      * of characters, where each character is either an alphanumeric 
      * character (as in isalnum) or the underscore character (_).
      */
-    double atof(char s[]) {
+    double atof(const char * s) {
         int i = 0;
         while (isspace(s[i])) {
             ++i;
@@ -80,5 +81,48 @@ namespace CStringAlgorithms {
             power *= 10.0;
         }
         return sign * value / power;
+    }
+    
+    /** inverse all the words (except numbers, punctuation) in a string. */
+    void inverseWordsInString(char * str) {
+        if (str == NULL || *str == '\0') {
+            return;
+        }
+        char * start = str, * end, * digitStart, * digitEnd;
+        int i, n;
+        while (*start) {
+            while (*start && !isalnum(*start)) {
+                ++start;
+            }
+            
+            // find the whole word
+            end = start;
+            while (isalnum(*end)) {
+                ++end;
+            }
+            
+            // inverse the whole word including numbers
+            n = (int)(end - start - 1);
+            for (i = 0; i < n; ++i, --n) {
+                std::swap(*(start+i), *(start+n));
+            }
+            
+            // inverse the numbers inside the word
+            digitStart = start;
+            while (digitStart < end && !isnumber(*digitStart)) {
+                ++digitStart;
+            }
+            digitEnd = digitStart;
+            while (digitEnd < end && isnumber(*digitEnd)) {
+                ++digitEnd;
+            }
+            n = (int)(digitEnd-digitStart-1);
+            for (i = 0; i < n; ++i, --n) {
+                std::swap(*(digitStart+i), *(digitStart+n));
+            }
+            
+            start = end;
+        }
+        
     }
 }
