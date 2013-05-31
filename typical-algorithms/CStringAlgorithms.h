@@ -33,8 +33,14 @@ namespace CStringAlgorithms {
     /** convert string to double. */
     double atof(const char * str);
     
+    /** ascii to integer */
+    int atoi(const char * str);
+    
     /** inverse all the words (except numbers, punctuation) in a string. */
     void inverseWordsInString(char * str);
+    
+    /** inverse a string*/
+    void inverseWordsOrderInString(char * str);
 }
 
 #endif /* defined(__typical_algorithms__CStringAlgorithms__) */

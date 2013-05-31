@@ -101,7 +101,7 @@ void traversePostorderIterativelyNormal(TreeNode * root,
     }
 }
 
-/** traverse the tree by postorder recursively. 
+/** traverse the tree by postorder iteratively. 
  * A magic version: using a reverse "preorder" traversal: need an additional 
  * stack to keep the temporary data.
  */

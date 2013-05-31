@@ -83,6 +83,37 @@ namespace CStringAlgorithms {
         return sign * value / power;
     }
     
+    /** ascii to integer 
+     *
+     * Hint: Carefully consider all possible input cases.
+     * http://leetcode.com/onlinejudge#question_8
+     * Requirements for atoi:
+     * 1. The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.
+     * 2. The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function.
+     * 3. If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed.
+     * 4. If no valid conversion could be performed, a zero value is returned. If the correct value is out of the range of representable values, INT_MAX (2147483647) or INT_MIN (-2147483648) is returned.
+     */
+    int atoi(const char * str) {
+        int value = 0, sign = 1;
+        while (isspace(*str)) {
+            ++str;
+        }
+        if(*str == '+' || *str == '-') {
+            sign = (*str == '-') ? -1 : 1;
+            ++str;
+        }
+        while (*str && isdigit(*str)) {
+            int digit = *str - '0';
+            if (sign == 1 && value >= (INT_MAX - digit) / 10.0) // overflow
+                return INT_MAX;
+            if (sign == -1 && value >= (INT_MIN + digit) / -10.0) // overflow
+                return INT_MIN;
+            value = value * 10 + (*str - '0');
+            ++str;
+        }
+        return value * sign;
+    }
+    
     /** inverse all the words (except numbers, punctuation) in a string. */
     void inverseWordsInString(char * str) {
         if (str == NULL || *str == '\0') {
@@ -124,5 +155,60 @@ namespace CStringAlgorithms {
             start = end;
         }
         
+    }
+    
+    /** inverse the order of strings in a sentence
+     * Test cases:
+     * char str1[] = "I am a Chinese";
+     * char str2[] = "";
+     * char str3[] = " I  am  a  Chinese  ";
+     * char * str4 = NULL;
+     */
+    void inverseWordsOrderInString(char * str) {
+        if (!str || str[0] == '\0') {
+            return;
+        }
+        int n = (int)strlen(str);
+        char temp;
+        
+        // inverse the whole string
+        for (int i = 0, j = n-1; i < j; ++i, --j) {
+            temp = str[i];
+            str[i] = str[j];
+            str[j] = temp;
+        }
+        
+        // inverse every word
+        int start, end;
+        for (int i = 0; i < n; ) {
+            while (i < n && isspace(str[i])) {
+                ++i;
+            }
+            start = i;
+            while (i < n && !isspace(str[i])) {
+                ++i;
+            }
+            end = i-1;
+            for (; start < end; ++start, --end) {
+                temp = str[start];
+                str[start] = str[end];
+                str[end] = temp;
+            }
+        }
+        
+        // merge the spaces
+        int i = 0;
+        for (int j = 0; j < n;) {
+            while (j < n && isspace(str[j])) {
+                ++j;
+            }
+            if (j > 0) {
+                str[i++] = str[j-1];
+            }
+            while (j < n && !isspace(str[j])) {
+                str[i++] = str[j++];
+            }
+        }
+        str[i] = '\0';
     }
 }
