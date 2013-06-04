@@ -19,6 +19,11 @@ using std::vector;
  */
 void qsort(int v[], int left, int right);
 
+/** typical algorithm: bubble sort on an arry.
+ * Complexity: O(n^2) time, O(1) space.
+ */
+void bubbleSort(int v[], int n);
+
 /** Find the intersection of two sorted arrays. */
 vector<int> findIntersection(const vector<int> & v1,
                              const vector<int> & v2);
@@ -32,5 +37,6 @@ int findKthElement(const vector<int> & v1,
  * print the results to stdout.
  */
 void computeIntervalsIntersections();
+
 
 #endif /* defined(__typical_algorithms__ArrayAlgorithms__) */

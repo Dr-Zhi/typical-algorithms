@@ -20,7 +20,7 @@ using std::vector;
 
 /** quick sort algorithm on an array.
  * average complexity: O(nlogn), worst: O(n^2).
- * space: O(1), that is, this is a in-place algorithm.
+ * space: O(logn) for stack frames.
  */
 void qsort(int v[], int left, int right) {
     if (left >= right) {
@@ -40,6 +40,34 @@ void qsort(int v[], int left, int right) {
     // recursively sort the subarrays
     qsort(v, left, last-1);
     qsort(v, last+1, right);
+}
+
+/** Swap two integer without extra varialbe (using XOR).
+ * Alternatively, we can use +/-, but +/- may cause overflow.
+ */
+void swapInteger(int & x, int & y) {
+    x ^= y;
+    y ^= x;
+    x ^= y;
+}
+
+/** bubble sort on an arry. 
+ * Complexity: O(n^2) time, O(1) space.
+ */
+void bubbleSort(int v[], int n) {
+    if (!v) {
+        return;
+    }
+    bool exchange = true;
+    for (int i = 0; i < n-1 && exchange; ++i) {
+        exchange = false;
+        for (int j = n-1; j > i; --j) {
+            if (v[j] < v[j-1]) {
+                swapInteger(v[j], v[j-1]);
+                exchange = true;
+            }
+        }
+    }
 }
 
 /** Find the intersection of two sorted arrays.

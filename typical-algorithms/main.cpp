@@ -45,28 +45,42 @@ int main(int argc, const char * argv[]) {
 //    const char * str = "-2147483647";
 //    int value = CStringAlgorithms::atoi(str);
 //    printf("value for string %s: %d", str, value);
+
     
+//    char str1[] = "I am a Chinese";
+//    CStringAlgorithms::inverseWordsOrderInString(str1);
+//    printf("%s\n", str1);
+//    
+//    char str2[] = "    ";
+//    CStringAlgorithms::inverseWordsOrderInString(str2);
+//    printf("%s\n", str2);
+//    
+//    char str3[] = "    I   am    a     Chinese  ";
+//    CStringAlgorithms::inverseWordsOrderInString(str3);
+//    printf("%s\n", str3);
+//    
+//    char * str4 = NULL;
+//    CStringAlgorithms::inverseWordsOrderInString(str4);
+//    printf("%s\n", str4);
+//    
+//    char str5[] = "a";
+//    CStringAlgorithms::inverseWordsOrderInString(str5);
+//    printf("%s\n", str5);
     
+    /* Test for sorting */
+    int n = 5;
+    printf("before sorting: ");
+    int v[] = {9, 8, 7, 6, 5};
+    for (int i = 0; i < n; ++i) {
+        printf("%d ", v[i]);
+    }
+    qsort(v, 0, 4);
     
-    char str1[] = "I am a Chinese";
-    CStringAlgorithms::inverseWordsOrderInString(str1);
-    printf("%s\n", str1);
-    
-    char str2[] = "    ";
-    CStringAlgorithms::inverseWordsOrderInString(str2);
-    printf("%s\n", str2);
-    
-    char str3[] = "    I   am    a     Chinese  ";
-    CStringAlgorithms::inverseWordsOrderInString(str3);
-    printf("%s\n", str3);
-    
-    char * str4 = NULL;
-    CStringAlgorithms::inverseWordsOrderInString(str4);
-    printf("%s\n", str4);
-    
-    char str5[] = "a";
-    CStringAlgorithms::inverseWordsOrderInString(str5);
-    printf("%s\n", str5);
+//    bubbleSort(v, n);
+    printf("\nafter sorting: ");
+    for (int i = 0; i < n; ++i) {
+        printf("%d ", v[i]);
+    }
     
     return 0;
 }
