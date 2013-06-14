@@ -140,8 +140,7 @@ void partition(const int n, const int k) {
                               vector<int> &);
     
     vector<int> partitions;
-    partitionRecursively(n, k,
-                         partitions);
+    partitionRecursively(n, k, partitions);
 }
 
 void partitionRecursively(const int n, const int k,
@@ -164,6 +163,21 @@ void partitionRecursively(const int n, const int k,
                              partitions);
         partitions.pop_back();
     }
+}
+
+/** implement x^n. */
+double pow(double x, int n) {
+    bool isNegative = (n < 0);
+    if (isNegative)  n = -n;
+    double result = 1;
+    while (n > 0) {
+        if (n & 1) result *= x;
+        x *= x;
+        n = n >> 1;
+    }
+    if (isNegative)
+        result = 1.0 / result;
+    return result;
 }
 
 

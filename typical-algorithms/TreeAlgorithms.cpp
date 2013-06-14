@@ -9,8 +9,11 @@
 #include "Types.h"
 #include "TreeAlgorithms.h"
 #include <stack>
+#include <vector>
+#include <string>
+#include <map>
 
-using std::stack;
+using namespace std;
 
 /** Traverse a tree in preorder iteratively */
 void traversePreorderIteratively(TreeNode * root, void (*visit)(TreeNode *)) {
@@ -137,5 +140,65 @@ void traversePostorderRecursively(TreeNode * root, void (* visit)(TreeNode *)) {
     traversePostorderRecursively(root->right, visit);
     visit(root);
 }
+
+struct Edge {
+    Edge(int s, int e) : start(s), end(e) {}
+    int start;
+    int end;
+};
+
+struct Vertex {
+    vector<Edge> adjacentEdges;
+};
+
+vector<Vertex> vertices;
+map<string, int> mapStringToIndex;
+
+enum Color {
+    White, // never visited
+    Gray,  // being visited (i.e., as an ancestor for current)
+    Black  // finished visiting
+};
+
+bool detectCycleWithDFS(int v, vector<Color> & visitedStatus) {
+    bool isValidStatus = true;
+    visitedStatus[v] = Gray; // mark as being visited
+    for (int i = 0; i < vertices[v].adjacentEdges.size(); ++i) {
+        int to = vertices[v].adjacentEdges[i].end;
+        if (visitedStatus[to] == White) { // not visited before -> continue DFS
+            isValidStatus = detectCycleWithDFS(to, visitedStatus);
+            if (!isValidStatus) {
+                return isValidStatus;
+            }
+        }
+        else if (visitedStatus[to] == Gray) { // an ancestor -> cycle detected
+            return false;
+        }
+    }
+    visitedStatus[v] = Black; // mark as finished visiting
+    return isValidStatus;
+}
+
+bool isValid(const vector<string> & formulas) {
+    // construct the directed graph...... (omitted here)
+    
+    vector<Color> visitedStatus(vertices.size(), White);
+    int startVertex = 0;
+    bool isValidStatus = true;
+    while (startVertex != vertices.size()) {
+        for (int i = startVertex; i < vertices.size(); ++i) {
+            if (visitedStatus[i] == White) {
+                isValidStatus = detectCycleWithDFS(i, visitedStatus);
+                if (!isValidStatus) {
+                    return isValidStatus;
+                }
+            }
+        }
+    }
+    
+    return isValidStatus;
+}
+//a < b, b < d, a < c, c < d
+
 
 
