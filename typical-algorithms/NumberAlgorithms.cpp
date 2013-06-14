@@ -166,7 +166,7 @@ void partitionRecursively(const int n, const int k,
 }
 
 /** implement x^n. */
-double pow(double x, int n) {
+double power(double x, int n) {
     bool isNegative = (n < 0);
     if (isNegative)  n = -n;
     double result = 1;

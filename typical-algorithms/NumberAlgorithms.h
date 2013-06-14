@@ -38,18 +38,6 @@ void partition(const int n, const int k);
 
 /** implement x^n. 
  */
-double pow(double x, int n) {
-    bool isNegative = (n < 0);
-    if (isNegative)  n = -n;
-    double result = 1;
-    while (n > 0) {
-        if (n & 1) result *= x;
-        x *= x;
-        n = n >> 1;
-    }
-    if (isNegative)
-        result = 1.0 / result;
-    return result;
-}
+double power(double x, int n);
 
 #endif /* defined(__typical_algorithms__numberAlgorithms__) */
