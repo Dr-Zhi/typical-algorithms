@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2592B961771BCC1009C227F /* BigNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2592B941771BCC1009C227F /* BigNumber.cpp */; };
 		B25C79AD16FDAA8500A3BFED /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B25C79AC16FDAA8500A3BFED /* main.cpp */; };
 		B25C79AF16FDAA8500A3BFED /* typical_algorithms.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B25C79AE16FDAA8500A3BFED /* typical_algorithms.1 */; };
 		B2B09F41174B934C00E67A8E /* ArrayAlgorithms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2B09F3F174B934C00E67A8E /* ArrayAlgorithms.cpp */; };
@@ -30,6 +31,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B2592B941771BCC1009C227F /* BigNumber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BigNumber.cpp; sourceTree = "<group>"; };
+		B2592B951771BCC1009C227F /* BigNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigNumber.h; sourceTree = "<group>"; };
 		B25C79A916FDAA8500A3BFED /* typical-algorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "typical-algorithms"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B25C79AC16FDAA8500A3BFED /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B25C79AE16FDAA8500A3BFED /* typical_algorithms.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = typical_algorithms.1; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 				B2DCE7C4174AFBDE0057B6EC /* Types.h */,
 				B25C79AC16FDAA8500A3BFED /* main.cpp */,
 				B25C79AE16FDAA8500A3BFED /* typical_algorithms.1 */,
+				B2592B941771BCC1009C227F /* BigNumber.cpp */,
+				B2592B951771BCC1009C227F /* BigNumber.h */,
 			);
 			path = "typical-algorithms";
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 				B2DCE7C3174AFB640057B6EC /* TreeAlgorithms.cpp in Sources */,
 				B2B09F41174B934C00E67A8E /* ArrayAlgorithms.cpp in Sources */,
 				B2B09F44174B938900E67A8E /* LinkedListAlgorithms.cpp in Sources */,
+				B2592B961771BCC1009C227F /* BigNumber.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,10 +15,10 @@
 ListNode * reverse(ListNode * head) {
     ListNode * cur = head, * prev = NULL, * next = NULL;
     while (cur) {
-        next = cur->next;
+        next = cur->next; // keep next
         cur->next = prev;
-        prev = cur;
-        cur = next;
+        prev = cur; // update prev
+        cur = next; // update cur
     }
     return prev;
 }
