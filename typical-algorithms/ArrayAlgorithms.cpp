@@ -13,10 +13,13 @@
 #include <utility>
 #include <cstdio>
 
-using namespace std;
-
 using std::swap;
 using std::vector;
+using std::max;
+using std::pair;
+using std::cout;
+using std::endl;
+using std::min;
 
 /** quick sort algorithm on an array.
  * average complexity: O(nlogn), worst: O(n^2).
@@ -180,5 +183,47 @@ void computeIntervalsIntersections() {
         }
     }
     printf("[%d,%d]\n", interval.first, interval.second);
+}
+
+/** Remove consecutive duplicates in range
+ *
+ * Removes all but the first element from every consecutive group of
+ * equivalent elements in the range [first,last).
+ * Ref: http://www.cplusplus.com/reference/algorithm/unique/
+ */
+template <class ForwardIterator>
+ForwardIterator unique (ForwardIterator first, ForwardIterator last) {
+    if (first == last)
+        return first;
+    ForwardIterator result = first;
+    while (++first != last) {
+        if (*result != *first)
+            *(++result) = *first;
+    }
+    return ++result;
+}
+
+/** Generate a random integer in [0, n).
+ * add a little overhead to eliminate modulo bias.
+ */
+static int rand_int(int n) {
+    int limit = RAND_MAX - RAND_MAX % n;
+    int rnd;
+    
+    do {
+        rnd = rand();
+    } while (rnd >= limit);
+    return rnd % n;
+}
+
+/** Randomly shuffle an array. 
+ * Ref: http://stackoverflow.com/questions/3343797/is-this-c-implementation-of-fisher-yates-shuffle-correct
+ */
+void shuffle(int * array, int n) {
+    int j;
+    for (int i = n - 1; i > 0; --i) {
+        j = rand_int(i + 1);
+        swap(array[j], array[i]);
+    }
 }
 

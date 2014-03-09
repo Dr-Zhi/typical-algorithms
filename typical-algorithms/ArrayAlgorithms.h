@@ -38,5 +38,9 @@ int findKthElement(const vector<int> & v1,
  */
 void computeIntervalsIntersections();
 
+/** Remove consecutive duplicates in range => the STL unique() method.
+ */
+template <class ForwardIterator>
+ForwardIterator unique (ForwardIterator first, ForwardIterator last);
 
 #endif /* defined(__typical_algorithms__ArrayAlgorithms__) */
